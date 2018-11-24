@@ -193,21 +193,16 @@
         return false;
       }
 
-      public static function ListarMoto(){
-        try
-        {
+      public static function listarMotos($codigo){
+
           $query = "SELECT * FROM moto WHERE idUsuario=:codigo;";
+
           self::getConexion();
           $resultado = self::$cnx->prepare($query);
-          $codigo = $usuario->getCodigo();
           $resultado->bindParam(":codigo",$codigo);
           $resultado->execute();
           return $resultado->fetchAll(PDO::FETCH_OBJ);
-        }
-        catch(Exception $e)
-        {
-          die($e->getMessage());
-        }
+
        }
 
 

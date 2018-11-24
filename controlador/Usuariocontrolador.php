@@ -91,6 +91,8 @@
 
     public function listarMotos($codigo)
     {
+      $obj_usuario = new Usuario();
+      $obj_usuario->setCodigo($codigo);
       return (UsuarioDao::listarMotos($codigo));
     }
   }
