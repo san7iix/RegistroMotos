@@ -1,6 +1,6 @@
 <?php
   include "conexion.php";
-  $dir= $_SERVER['DOCUMENT_ROOT']."/votaciones";
+  $dir= $_SERVER['DOCUMENT_ROOT']."/Registro motos";
   include "$dir/entidades/Usuario.php";
 
   class UsuarioDao extends Conexion{
@@ -44,7 +44,7 @@
 
     public static function getUsuario($usuario){
 
-      $query = "SELECT codigo,nombre1,nombre2,apellido1,apellido2,id_rol,id_programa,id_mesa,idEstado,idTipoUsuario FROM usuario WHERE codigo = :codig AND password = :pass";
+      $query = "SELECT codigo,nombre1,nombre2,apellido1,apellido2,id_rol FROM usuario WHERE codigo = :codig AND password = :pass";
 
       self::getConexion();
       $codigo= $usuario->getCodigo();
@@ -63,10 +63,6 @@
       $usuario->setApellido1($filas['apellido1']);
       $usuario->setApellido2($filas['apellido2']);
       $usuario->setId_rol($filas['id_rol']);
-      $usuario->setId_programa($filas['id_programa']);
-      $usuario->setId_mesa($filas['id_mesa']);
-      $usuario->setIdEstado($filas['idEstado']);
-      $usuario->setIdTipoUsuario($filas['idTipoUsuario']);
 
       return $usuario;
     }
@@ -113,7 +109,7 @@
     public static function Listar(){
       try
       {
-        $query = "SELECT * FROM usuario WHERE (id_rol='V' or id_rol='J') and codigo!='0'";
+        $query = "SELECT * FROM usuario";
         self::getConexion();
         $resultado = self::$cnx->prepare($query);
         $resultado->execute();
@@ -125,27 +121,6 @@
       }
      }
 
-     public static function Autorizar($codigo,$estado){
-       try
-       {
-         $query = "UPDATE usuario set idEstado= :estado WHERE codigo=:codigo";
-         self::getConexion();
-         $resultado = self::$cnx->prepare($query);
-         $resultado->bindParam(":codigo",$codigo);
-         $resultado->bindParam(":estado",$estado);
-
-         if ($resultado->execute()) {
-           return true;
-         }else{
-           return false;
-         }
-
-       }
-       catch(Exception $e)
-       {
-         die($e->getMessage());
-       }
-      }
       public static function getUsuario2($usuario){
 
         $query = "SELECT codigo,nombre1,nombre2,apellido1,apellido2,id_rol,id_programa,id_mesa,idEstado,idTipoUsuario FROM usuario WHERE codigo = :codig";
@@ -165,10 +140,7 @@
         $usuario->setApellido1($filas['apellido1']);
         $usuario->setApellido2($filas['apellido2']);
         $usuario->setId_rol($filas['id_rol']);
-        $usuario->setId_programa($filas['id_programa']);
-        $usuario->setId_mesa($filas['id_mesa']);
-        $usuario->setIdEstado($filas['idEstado']);
-        $usuario->setIdTipoUsuario($filas['idTipoUsuario']);
+        $usuario->setId_motos($filas['moto_idmoto']);
 
         return $usuario;
       }
@@ -221,13 +193,14 @@
         return false;
       }
 
-      public static function listarporMesa($mesa){
+      public static function ListarMoto(){
         try
         {
-          $query = "SELECT * FROM usuario WHERE (id_rol='V' or id_rol='J') and codigo!='0' and id_mesa=:mesa";
+          $query = "SELECT * FROM moto WHERE idUsuario=:codigo;";
           self::getConexion();
           $resultado = self::$cnx->prepare($query);
-          $resultado->bindParam(":mesa",$mesa);
+          $codigo = $usuario->getCodigo();
+          $resultado->bindParam(":codigo",$codigo);
           $resultado->execute();
           return $resultado->fetchAll(PDO::FETCH_OBJ);
         }
@@ -237,25 +210,5 @@
         }
        }
 
-       public static function buscarMesa($codigo){
-         try
-         {
-           $query = "SELECT u.nombre1,u.nombre2,u.apellido1,u.apellido2,m.nombre as nombreMesa,l.nombre as nombreLugar FROM usuario u
-           inner join mesa m
-           on u.id_mesa = m.id_mesa
-           inner join lugar l
-           on m.id_lugar = l.id_lugar
-           WHERE u.codigo = :codigo and u.id_rol = 'V'";
-           self::getConexion();
-           $resultado = self::$cnx->prepare($query);
-           $resultado->bindParam(":codigo",$codigo);
-           $resultado->execute();
-           return $resultado->fetchAll(PDO::FETCH_OBJ);
-         }
-         catch(Exception $e)
-         {
-           die($e->getMessage());
-         }
-        }
 
   }

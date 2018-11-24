@@ -1,6 +1,6 @@
 <?php
 
-  $dir= $_SERVER['DOCUMENT_ROOT']."/votaciones";
+  $dir= $_SERVER['DOCUMENT_ROOT']."/Registro motos";
   include "$dir/datos/UsuarioDao.php";
 
   class UsuarioControlador{
@@ -87,5 +87,10 @@
     public function  buscarVotante($codigo)
     {
       return (UsuarioDao::buscarMesa($codigo));
+    }
+
+    public function listarMotos($codigo)
+    {
+      return (UsuarioDao::listarMotos($codigo));
     }
   }
