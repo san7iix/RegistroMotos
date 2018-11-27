@@ -70,7 +70,7 @@
 
     public static function registrar($usuario){
 
-      $query = "INSERT INTO usuario (codigo, nombre1, nombre2, apellido1, apellido2, password, id_rol, id_programa, id_mesa, idEstado, idTipoUsuario) VALUES (:codigo,:nombre1,:nombre2,:apellido1,:apellido2,:password,:id_rol,:id_programa,:id_mesa,:idEstado,:idTipoUsuario)";
+      $query = "INSERT INTO usuario (codigo, nombre1, nombre2, apellido1, apellido2, password, id_rol) VALUES (:codigo,:nombre1,:nombre2,:apellido1,:apellido2,:password,:id_rol)";
 
       self::getConexion();
 
@@ -81,12 +81,9 @@
       $nombre2= $usuario->getNombre2();
       $apellido1= $usuario->getApellido1();
       $apellido2= $usuario->getApellido2();
-      $id_rol= $usuario->getId_rol();
-      $id_programa= $usuario->getId_Programa();
-      $id_mesa= $usuario->getId_Mesa();
-      $idEstado= $usuario->getIdEstado();
       $idTipoUsuario= $usuario->getIdTipoUsuario();
       $pass = $usuario->getPassword();
+      $id_rol = $usuario->getId_rol();
 
       $resultado->bindParam(":codigo",$codigo);
       $resultado->bindParam(":nombre1",$nombre1);
@@ -95,10 +92,6 @@
       $resultado->bindParam(":apellido2",$apellido2);
       $resultado->bindParam(":password",$pass);
       $resultado->bindParam(":id_rol",$id_rol);
-      $resultado->bindParam(":id_programa",$id_programa);
-      $resultado->bindParam(":id_mesa",$id_mesa);
-      $resultado->bindParam(":idEstado",$idEstado);
-      $resultado->bindParam(":idTipoUsuario",$idTipoUsuario);
 
       if ($resultado->execute()) {
         return true;
@@ -123,7 +116,7 @@
 
       public static function getUsuario2($usuario){
 
-        $query = "SELECT codigo,nombre1,nombre2,apellido1,apellido2,id_rol,id_programa,id_mesa,idEstado,idTipoUsuario FROM usuario WHERE codigo = :codig";
+        $query = "SELECT codigo,nombre1,nombre2,apellido1,apellido2,id_rol FROM usuario WHERE codigo = :codig";
 
         self::getConexion();
         $codigo= $usuario->getCodigo();
@@ -140,7 +133,6 @@
         $usuario->setApellido1($filas['apellido1']);
         $usuario->setApellido2($filas['apellido2']);
         $usuario->setId_rol($filas['id_rol']);
-        $usuario->setId_motos($filas['moto_idmoto']);
 
         return $usuario;
       }
@@ -148,7 +140,7 @@
 
       public static function editar($usuario){
 
-        $query = "UPDATE usuario SET nombre1=:nombre1, nombre2=:nombre2, apellido1=:apellido1, apellido2=:apellido2,password=:password, id_rol=:id_rol, id_programa=:id_programa, id_mesa=:id_mesa, idTipoUsuario=:idTipoUsuario WHERE codigo=:codigo";
+        $query = "UPDATE usuario SET nombre1=:nombre1, nombre2=:nombre2, apellido1=:apellido1, apellido2=:apellido2,password=:password, id_rol=:id_rol WHERE codigo=:codigo";
 
         self::getConexion();
 
@@ -160,10 +152,6 @@
         $apellido1= $usuario->getApellido1();
         $apellido2= $usuario->getApellido2();
         $id_rol= $usuario->getId_rol();
-        $id_programa= $usuario->getId_Programa();
-        $id_mesa= $usuario->getId_Mesa();
-        $idTipoUsuario= $usuario->getIdTipoUsuario();
-        $pass = $usuario->getPassword();
 
         $resultado->bindParam(":codigo",$codigo);
         $resultado->bindParam(":nombre1",$nombre1);
@@ -172,9 +160,6 @@
         $resultado->bindParam(":apellido2",$apellido2);
         $resultado->bindParam(":password",$pass);
         $resultado->bindParam(":id_rol",$id_rol);
-        $resultado->bindParam(":id_programa",$id_programa);
-        $resultado->bindParam(":id_mesa",$id_mesa);
-        $resultado->bindParam(":idTipoUsuario",$idTipoUsuario);
 
         if ($resultado->execute()) {
           return true;
@@ -203,6 +188,23 @@
           $resultado->execute();
           return $resultado->fetchAll(PDO::FETCH_OBJ);
 
+       }
+
+       public static function buscarU($usuario){
+
+         $query = "SELECT codigo FROM usuario WHERE codigo = :codig";
+
+         self::getConexion();
+         $codigo= $usuario->getCodigo();
+         $resultado = self::$cnx->prepare($query);
+         $resultado->bindParam(":codig",$codigo);
+
+         $resultado->execute();
+         if ($resultado->rowCount() > 0) {
+           return true;
+         } else {
+           return false;
+         }
        }
 
 

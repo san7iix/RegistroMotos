@@ -16,15 +16,11 @@
       $apellido1C = validar_campo($_POST['apellido1Crear']);
       $apellido2C = validar_campo($_POST['apellido2Crear']);
       $id_rolC = validar_campo($_POST['rolCrear']);
-      $id_programa = $_POST['programaCrear'];
-      $id_mesa = $_POST['mesaCrear'];
-      $id_tipo_usuario = $_POST['tipoUsuarioCrear'];
-      $estado = 1;
 
-      if(UsuarioControlador::registrar($codigoC,$nombre1C,$nombre2C,$apellido1C,$apellido2C,$contraC,$id_rolC,$id_programa,$id_mesa,$estado,$id_tipo_usuario)) {
-        header("location:admin.php");
+      if(UsuarioControlador::registrar($codigoC,$nombre1C,$nombre2C,$apellido1C,$apellido2C,$contraC,$id_rolC)) {
+        header("location:adminAdds/usuarios.php");
       }else{
-        header("location:usuario/crud_usuario.php?error=1");
+        header("location:adminAdds/usuarios.php");
       }
     }
       }

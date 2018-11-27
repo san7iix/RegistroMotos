@@ -14,10 +14,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Programas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Mesas</a>
+            <a class="nav-link" href="#">Motos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="log-out.php">Cerrar Sesión</a>

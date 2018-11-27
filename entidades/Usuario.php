@@ -10,10 +10,7 @@
     private $nombre2;
     private $id_rol;
     private $password;
-    private $id_programa;
-    private $id_mesa;
-    private $idEstado;
-    private $idTipoUsuario;
+
 
     public function getPdo(){
         return $this->pdo;

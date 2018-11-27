@@ -1,8 +1,10 @@
 <?php
   session_start();
   if(isset($_SESSION['usuario'])){
-    if ($_SESSION['usuario']['id_rol']=='2' or $_SESSION['usuario']['id_rol']=='3') {
-      header("location:usuario/usuario.php");
+    if ($_SESSION['usuario']['id_rol']=='3') {
+      header("location:usuario/vigilantes.php");
+    }else{
+      if($_SESSION['usuario']['id_rol']=='2')header("location:usuario/usuario.php");
     }
   }else {
     header("location:index.php");
@@ -35,20 +37,14 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="">Usuarios
+            <a class="nav-link" href="adminAdds/usuarios.php">Usuarios
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Programas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Mesas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Candidatos</a>
+            <a class="nav-link" href="adminAdds/motos.php">Motos</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="log-out.php">Cerrar Sesión</a>
+            <a class="nav-link" href="../log-out.php">Cerrar Sesión</a>
           </li>
         </ul>
       </div>

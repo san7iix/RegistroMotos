@@ -21,18 +21,13 @@
       return (UsuarioDao::getUsuario($obj_usuario));
     }
 
-    public function registrar($codigo,$nombre1,$nombre2,$apellido1,$apellido2,$password,$id_rol,$id_programa,$id_mesa,$idEstado,$idTipoUsuario){
+    public function registrar($codigo,$nombre1,$nombre2,$apellido1,$apellido2,$password){
       $obj_usuario = new Usuario();
       $obj_usuario->setCodigo($codigo);
       $obj_usuario->setNombre1($nombre1);
       $obj_usuario->setNombre2($nombre2);
       $obj_usuario->setApellido1($apellido1);
       $obj_usuario->setApellido2($apellido2);
-      $obj_usuario->setId_rol($id_rol);
-      $obj_usuario->setId_Programa($id_programa);
-      $obj_usuario->setId_Mesa($id_mesa);
-      $obj_usuario->setIdEstado($idEstado);
-      $obj_usuario->setIdTipoUsuario($idTipoUsuario);
       $obj_usuario->setPassword($password);
       return (UsuarioDao::registrar($obj_usuario));
     }
@@ -55,10 +50,10 @@
     public function obtenerUsuario($codigo){
       $obj_usuario = new Usuario();
       $obj_usuario->setCodigo($codigo);
-      return (UsuarioDao::getUsuario2($obj_usuario));
+      return (UsuarioDao::buscarU($obj_usuario));
     }
 
-    public function editar($codigo,$nombre1,$nombre2,$apellido1,$apellido2,$password,$id_rol,$id_programa,$id_mesa,$idTipoUsuario){
+    public function editar($codigo,$nombre1,$nombre2,$apellido1,$apellido2,$password,$id_rol){
       $obj_usuario = new Usuario();
       $obj_usuario->setCodigo($codigo);
       $obj_usuario->setNombre1($nombre1);
@@ -66,10 +61,6 @@
       $obj_usuario->setApellido1($apellido1);
       $obj_usuario->setApellido2($apellido2);
       $obj_usuario->setId_rol($id_rol);
-      $obj_usuario->setId_Programa($id_programa);
-      $obj_usuario->setId_Mesa($id_mesa);
-      $obj_usuario->setIdTipoUsuario($idTipoUsuario);
-      $obj_usuario->setPassword($password);
       return (UsuarioDao::editar($obj_usuario));
     }
 

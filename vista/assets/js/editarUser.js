@@ -6,12 +6,13 @@ $(document).ready(function() {
       type: $(this).attr("method"),
       data: $(this).serialize(),
       success: function(response){
+        console.log(response);
         if(response=="true"){
           $("body").overhang({
             type: "success",
             message: "Editado correctamente, redirigiendo...",
             callback: function(){
-              window.location.href = "../admin.php";
+              window.location.href = "usuarios.php";
             }
           });
         }else{
