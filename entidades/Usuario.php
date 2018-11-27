@@ -100,11 +100,4 @@ public function setIdEstado($idEstado){
   $this->idEstado = $idEstado;
 }
 
-public function getIdTipoUsuario(){
-  return $this->idTipoUsuario;
-}
-
-public function setIdTipoUsuario($idTipoUsuario){
-  $this->idTipoUsuario = $idTipoUsuario;
-}
   }

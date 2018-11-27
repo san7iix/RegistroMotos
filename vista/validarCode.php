@@ -22,10 +22,7 @@
                                         "apellido1"=>$usuario->getApellido1(),
                                         "apellido2"=>$usuario->getApellido1(),
                                         "id_rol"=>$usuario->getId_rol(),
-                                        "programa"=>$usuario->getId_Programa(),
-                                        "mesa"=>$usuario->getId_mesa(),
-                                        "estado"=>$usuario->getIdEstado(),
-                                        "tipo"=>$usuario->getIdTipoUsuario()
+                                        
                                     );
 
         return print(json_encode($resultado));

@@ -18,13 +18,24 @@
     <meta charset="utf-8">
     <title>Admin</title>
     <!-- Latest compiled and minified CSS -->
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/bs-3.3.5/jq-2.1.4,dt-1.10.8/datatables.min.css"/>
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="assets/js/admin.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/overhang.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+    <script src="vendor/jquery/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="assets/js/overhang.min.js"></script>
+    <script src="assets/js/app.js" charset="utf-8"></script>
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" charset="utf-8"></script>
+    <script src="assets/js/agregarRegistro.js" charset="utf-8"></script>
+    <script type="text/javascript" src="assets/js/overhang.min.js"></script>
+
+    <style media="screen">
+      body{
+        padding-top: 5%;
+      }
+    </style>
 
   </head>
 
@@ -41,16 +52,30 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="adminAdds/motos.php">Motos</a>
+            <a class="nav-link" href="adminAdds/motos/motos.php">Motos</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="../log-out.php">Cerrar Sesión</a>
+            <a class="nav-link" href="log-out.php">Cerrar Sesión</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form class="" action="" method="post" id="formReporte">
+            <fieldset class="form-group">
+              <input type="text" class="form-control" id="matricula" placeholder="Matrícula" name="matricula">
+              <small class="text-muted">Ingrese la matrícula del vehículo y pulse para reportar ingreso o salida</small>
+            </fieldset>
+            <button type="submit" name="ingreso" class="btn btn-primary" id="ingreso">Reportar ingreso</button>
+            <button type="submit" name="salida" class="btn btn-success" id="salida">Reportar salida</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <h3>Estadisticas</h3>
   <body>
   </body>
 </html>

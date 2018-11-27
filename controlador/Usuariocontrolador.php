@@ -21,7 +21,7 @@
       return (UsuarioDao::getUsuario($obj_usuario));
     }
 
-    public function registrar($codigo,$nombre1,$nombre2,$apellido1,$apellido2,$password){
+    public function registrar($codigo,$nombre1,$nombre2,$apellido1,$apellido2,$password,$id_rol){
       $obj_usuario = new Usuario();
       $obj_usuario->setCodigo($codigo);
       $obj_usuario->setNombre1($nombre1);
@@ -29,12 +29,18 @@
       $obj_usuario->setApellido1($apellido1);
       $obj_usuario->setApellido2($apellido2);
       $obj_usuario->setPassword($password);
+      $obj_usuario->setId_rol($id_rol);
       return (UsuarioDao::registrar($obj_usuario));
     }
 
     public function listarU()
     {
       return (UsuarioDao::listar());
+    }
+
+    public function listarMU()
+    {
+      return (UsuarioDao::listarMU());
     }
 
     public function autorizarU($codigo)

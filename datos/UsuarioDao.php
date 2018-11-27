@@ -81,7 +81,6 @@
       $nombre2= $usuario->getNombre2();
       $apellido1= $usuario->getApellido1();
       $apellido2= $usuario->getApellido2();
-      $idTipoUsuario= $usuario->getIdTipoUsuario();
       $pass = $usuario->getPassword();
       $id_rol = $usuario->getId_rol();
 
@@ -206,6 +205,23 @@
            return false;
          }
        }
+
+       public static function ListarMU(){
+         try
+         {
+           $query = "SELECT codigo,nombre1,nombre2,apellido1,apellido2,matricula,tipoMoto FROM usuario as u
+           inner join moto as m
+           where m.idUsuario=u.codigo";
+           self::getConexion();
+           $resultado = self::$cnx->prepare($query);
+           $resultado->execute();
+           return $resultado->fetchAll(PDO::FETCH_OBJ);
+         }
+         catch(Exception $e)
+         {
+           die($e->getMessage());
+         }
+        }
 
 
   }

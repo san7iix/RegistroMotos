@@ -20,18 +20,18 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top clearfix">
   <div class="container">
-    <a class="navbar-brand" href="../admin.php">Panel de control Usuarios | Admin: <?php echo $_SESSION['usuario']['nombre1']; ?></a>
+    <a class="navbar-brand" href="../../admin.php">Panel de control Motos | Admin: <?php echo $_SESSION['usuario']['nombre1']; ?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="">Usuarios
+          <a class="nav-link" href="../usuarios.php">Usuarios
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="motos/motos.php">Motos</a>
+          <a class="nav-link" href="#">Motos</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="../log-out.php">Cerrar Sesión</a>
@@ -41,49 +41,34 @@
   </div>
 </nav>
 <body>
-
-  <a href="agregarUsuario.html" class="btn btn-primary">Agregar usuario</a>
     <div class="col-md-6" style="margin-left:50px">
       <table id="tabla_usuarios" class="table table-stripped table-bordered">
         <thead>
           <tr>
-            <th>Código</th>
+            <th>Código del usuario</th>
             <th>Nombre</th>
-            <th>Tipo de usuario</th>
-            <th></th>
-            <th></th>
+            <th>Matrícula</th>
+            <th>Descripción</th>
           </tr>
         </thead>
         <tbody>
           <?php
-            foreach (UsuarioControlador::listarU() as $r) {
+            foreach (UsuarioControlador::listarMU() as $r) {
             ?>
           <tr>
             <td><?php echo $r->codigo ?></td>
             <td><?php echo $r->nombre1." ".$r->nombre2." ".$r->apellido1." ".$r->apellido2." " ?></td>
-            <td>
-                <?php if($r->id_rol=='1')echo "Administrador";
-                      if($r->id_rol=='2')echo "Usuario";
-                      if($r->id_rol=='3')echo "Vigilante";
-                ?>
-            </td>
-            </td>
-            <td>
-              <a  class="btn btn-warning" onclick="" href="editar.php?codigo=<?php echo $r->codigo; ?>">Editar</a>
-            </td>
-            <td>
-              <a  class="btn btn-danger" onclick="javascript:return confirm('¿Está seguro de eliminar este registro?');" href="../eliminaruCode.php?codigo=<?php echo $r->codigo; ?>">Eliminar</a>
-            </td>
+            <td><?php echo $r->matricula ?></td>
+            <td><?php echo $r->tipoMoto ?></td>
           </tr>
         <?php }?>
         </tbody>
         <tfoot>
           <tr>
-            <th>Código</th>
+            <th>Código del usuario</th>
             <th>Nombre</th>
-            <th>Tipo de usuario</th>
-            <th></th>
-            <th></th>
+            <th>Matrícula</th>
+            <th>Descripción</th>
           </tr>
         </tfoot>
       </table>

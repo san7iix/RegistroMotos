@@ -40,6 +40,7 @@
   </nav>
 
   <body>
+    <a href="../adds/agregarMoto.php" class="btn btn-primary">Agregar moto</a>
     <div class="col-md-6">
       <table id="tabla_motos" class="table table-stripped table-bordered">
         <thead>

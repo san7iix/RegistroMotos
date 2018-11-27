@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 function fAjax(){
   $.ajax({
-    url: 'registro.php',
+    url: 'agregarMotoI.php',
     type: 'POST',
     data: $("#formLogin").serialize(),
     success: function(data){
@@ -18,7 +18,7 @@ function fAjax(){
           type: "success",
           message: "Registrado correctamente, redirigiendo...",
           callback: function(){
-            window.location.href = "../index.php";
+            window.location.href = "../usuario/usuario.php";
           }
         });
       }else{
