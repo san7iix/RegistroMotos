@@ -118,6 +118,22 @@
       }
      }
 
+     public function listarH()
+     {
+       try
+       {
+         $query = "SELECT * FROM historial";
+         self::getConexion();
+         $resultado = self::$cnx->prepare($query);
+         $resultado->execute();
+         return json_encode($resultado->fetchAll(PDO::FETCH_OBJ));
+       }
+       catch(Exception $e)
+       {
+         die($e->getMessage());
+       }
+     }
+
   }
 
 ?>

@@ -20,8 +20,9 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/overhang.min.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/overhang.min.css"/>
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="vendor/jquery/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -84,6 +85,27 @@
         <div class="row">
           <div class="col-xl-5">
             <canvas id="myChart2" width="600" height="600"></canvas>
+          </div>
+          <div class="col-xl-5">
+            <table class="table table-stripped table-bordered" id="tablaHistorial">
+              <thead>
+                <tr>
+                  <th>Matrícula</th>
+                  <th>Entrada</th>
+                  <th>Salida</th>
+
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Matrícula</th>
+                  <th>Entrada</th>
+                  <th>Salida</th>
+                </tr>
+              </tfoot>
+            </table>
           </div>
         </div>
       </div>

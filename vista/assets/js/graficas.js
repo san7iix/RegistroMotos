@@ -1,5 +1,6 @@
+fAjax();
 $(document).ready(function() {
-
+  $("#tablaHistorial").DataTable();
   var ctx = document.getElementById("myChart2");
   var myChart = new Chart(ctx, {
     type: 'bar',
@@ -59,11 +60,15 @@ $.ajax({
 function fAjax(){
   var temp;
   $.ajax({
-    url: 'adminAdds/historial/consultarHistorialDiario.php',
-    type: 'POST',
+    url: 'adminAdds/historial/listarHistorial.php',
+    type: 'GET',
     data: $("#formReporte").serialize(),
     datatype: 'json',
     success: function(data){
+      a=JSON.parse(data);
+      a.forEach(function(element){
+        $("#tablaHistorial tbody").append('<tr><td>'+element.matriculaMoto+'</td><td>'+element.entrada+'</td><td>'+element.salida+'</td></tr>');
+      });
     }
   });
 }

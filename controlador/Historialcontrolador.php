@@ -38,5 +38,10 @@
     {
       return (HistorialDao::SalidaDiaria());
     }
+
+    public function listarHistorial()
+    {
+      return(HistorialDao::listarH());
+    }
   }
 ?>
