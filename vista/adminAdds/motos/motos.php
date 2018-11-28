@@ -31,6 +31,9 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="../bitacora/bitacora.php">Bitácora</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#">Motos</a>
         </li>
         <li class="nav-item active">

@@ -30,6 +30,8 @@
     <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" charset="utf-8"></script>
     <script src="assets/js/agregarRegistro.js" charset="utf-8"></script>
     <script type="text/javascript" src="assets/js/overhang.min.js"></script>
+    <script src="assets/js/Chart.js"></script>
+    <script src="assets/js/graficas.js" charset="utf-8"></script>
 
     <style media="screen">
       body{
@@ -54,6 +56,9 @@
           <li class="nav-item">
             <a class="nav-link" href="adminAdds/motos/motos.php">Motos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adminAdds/bitacora/bitacora.php">Bitácora</a>
+          </li>
           <li class="nav-item active">
             <a class="nav-link" href="log-out.php">Cerrar Sesión</a>
           </li>
@@ -74,8 +79,15 @@
           </form>
         </div>
       </div>
+      <h3>Estadisticas</h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-5">
+            <canvas id="myChart2" width="600" height="600"></canvas>
+          </div>
+        </div>
+      </div>
     </div>
-    <h3>Estadisticas</h3>
   <body>
   </body>
 </html>

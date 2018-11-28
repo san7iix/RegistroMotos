@@ -28,5 +28,15 @@
       $obj_historial->setMatricula($matricula);
       return (HistorialDao::verificarMatricula($obj_historial));
     }
+
+    public function ingresoDiario()
+    {
+      return (HistorialDao::ingresoDiario());
+    }
+
+    public function SalidaDiaria()
+    {
+      return (HistorialDao::SalidaDiaria());
+    }
   }
 ?>

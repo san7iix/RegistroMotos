@@ -88,6 +88,36 @@
       }
     }
 
+    public static function ingresoDiario(){
+      try
+      {
+        $query = "SELECT count(*) cuentaE FROM historial where CAST(entrada as DATE) = current_date()";
+        self::getConexion();
+        $resultado = self::$cnx->prepare($query);
+        $resultado->execute();
+        return $resultado->fetchAll(PDO::FETCH_OBJ);
+      }
+      catch(Exception $e)
+      {
+        die($e->getMessage());
+      }
+    }
+
+    public static function SalidaDiaria(){
+      try
+      {
+        $query = "SELECT count(*) cuentaS FROM historial where CAST(salida as DATE) = current_date()";
+        self::getConexion();
+        $resultado = self::$cnx->prepare($query);
+        $resultado->execute();
+        return $resultado->fetchAll(PDO::FETCH_OBJ);
+      }
+      catch(Exception $e)
+      {
+        die($e->getMessage());
+      }
+     }
+
   }
 
 ?>
