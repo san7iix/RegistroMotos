@@ -29,10 +29,10 @@
     <script type="text/javascript" src="assets/js/overhang.min.js"></script>
     <script src="assets/js/app.js" charset="utf-8"></script>
     <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" charset="utf-8"></script>
-    <script src="assets/js/agregarRegistro.js" charset="utf-8"></script>
     <script type="text/javascript" src="assets/js/overhang.min.js"></script>
     <script src="assets/js/Chart.js"></script>
     <script src="assets/js/graficas.js" charset="utf-8"></script>
+    <script src="assets/js/agregarRegistro.js" charset="utf-8"></script>
 
     <style media="screen">
       body{
