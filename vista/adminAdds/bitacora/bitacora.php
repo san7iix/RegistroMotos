@@ -61,7 +61,6 @@
               <th>Descripción</th>
               <th>Fecha</th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -73,10 +72,7 @@
               <td><?php echo $r->texto ?></td>
               <td><?php echo $r->fecha ?></td>
               <td>
-                <a  class="btn btn-warning" onclick="" href="editar.php?codigo=<?php echo $r->codigo; ?>">Editar</a>
-              </td>
-              <td>
-                <a  class="btn btn-danger" onclick="javascript:return confirm('¿Está seguro de eliminar este registro?');" href="../eliminaruCode.php?codigo=<?php echo $r->codigo; ?>">Eliminar</a>
+                <a  class="btn btn-danger" onclick="javascript:return confirm('¿Está seguro de eliminar este registro?');" href="eliminarBitacora.php?codigo=<?php echo $r->idbitacora; ?>">Eliminar</a>
               </td>
             </tr>
           <?php }?>
@@ -86,7 +82,6 @@
               <th>Id</th>
               <th>Descripción</th>
               <th>Fecha</th>
-              <th></th>
               <th></th>
             </tr>
           </tfoot>

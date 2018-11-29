@@ -49,4 +49,14 @@
          return false;
        }
      }
+
+     public static function eliminar($bitacora){
+       $query = "DELETE FROM bitacora WHERE idbitacora= :codigo";
+       self::getConexion();
+       $resultado = self::$cnx->prepare($query);
+       $codigo = $bitacora->get_id();
+       $resultado->bindParam(":codigo",$codigo);
+       if($resultado->execute())return true;
+       return false;
+     }
   }

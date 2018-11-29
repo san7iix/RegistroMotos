@@ -18,5 +18,17 @@
       $obj_moto->setMatricula($matricula);
       return (MotoDao::buscarM($obj_moto));
     }
+
+    public function contarMU($codigo){
+      $obj_moto = new Moto();
+      $obj_moto->setId_Usuario($codigo);
+      return (MotoDao::contarMu($obj_moto));
+    }
+
+    public function eliminarMoto($matricula){
+      $obj_moto = new Moto();
+      $obj_moto->setMatricula($matricula);
+      return (MotoDao::eliminar($obj_moto));
+    }
   }
 ?>

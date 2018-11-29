@@ -92,4 +92,5 @@
       $obj_usuario->setCodigo($codigo);
       return (UsuarioDao::listarMotos($codigo));
     }
+
   }

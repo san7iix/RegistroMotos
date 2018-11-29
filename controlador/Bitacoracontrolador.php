@@ -16,6 +16,13 @@
       return (BitacoraDao::agregarBitacora($obj_bitacora));
     }
 
+    public function eliminar($codigo)
+    {
+      $obj_bitacora = new Bitacora();
+      $obj_bitacora->setId($codigo);
+      return BitacoraDao::eliminar($obj_bitacora);
+    }
+
   }
 
 

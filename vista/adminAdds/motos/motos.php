@@ -37,7 +37,7 @@
           <a class="nav-link" href="#">Motos</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="../log-out.php">Cerrar Sesión</a>
+          <a class="nav-link" href="../../log-out.php">Cerrar Sesión</a>
         </li>
       </ul>
     </div>

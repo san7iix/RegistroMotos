@@ -18,7 +18,7 @@ function fAjax(){
           type: "success",
           message: "Registrado correctamente, redirigiendo...",
           callback: function(){
-            window.location.href = "../index.php";
+            window.location.href = "bitacora.php";
           }
         });
       }else{

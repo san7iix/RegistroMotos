@@ -48,7 +48,6 @@
             <th>Matrícula</th>
             <th>Descripcción</th>
             <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -60,10 +59,7 @@
             <td><?php echo $r->tipoMoto ?></td>
             </td>
             <td>
-                <a  class="btn btn-warning" href="">Editar</a>
-            </td>
-            <td>
-              <a  class="btn btn-danger" onclick="javascript:return confirm('¿Está seguro de eliminar este registro?');" href="eliminaruCode.php?codigo=<?php echo $r->codigo; ?>">Eliminar</a>
+              <a  class="btn btn-danger" onclick="javascript:return confirm('¿Está seguro de eliminar este registro?');" href="../adds/eliminarMoto.php?codigo=<?php echo $r->idmoto; ?>">Eliminar</a>
             </td>
           </tr>
         <?php }?>
@@ -72,7 +68,6 @@
           <tr>
             <th>Matrícula</th>
             <th>Descripcción</th>
-            <th></th>
             <th></th>
           </tr>
         </tfoot>

@@ -56,4 +56,41 @@
         return false;
       }
     }
+
+    public static function contarMU($moto){
+      try
+      {
+        $query = "SELECT count(*) as cuenta FROM moto WHERE idUsuario=:codigo;";
+        self::getConexion();
+        $codigo = $moto->getId_Usuario();
+        $resultado = self::$cnx->prepare($query);
+        $resultado->bindParam(":codigo",$codigo);
+        $resultado->execute();
+        return $resultado->fetchAll(PDO::FETCH_OBJ);
+      }
+      catch(Exception $e)
+      {
+        die($e->getMessage());
+      }
+     }
+
+
+
+     public static function eliminar($moto){
+       try
+       {
+         $query = "DELETE FROM moto WHERE idmoto = :codigo";
+         self::getConexion();
+         $codigo = $moto->getMatricula();
+         $resultado = self::$cnx->prepare($query);
+         $resultado->bindParam(":codigo",$codigo);
+         $resultado->execute();
+         return true;
+       }
+       catch(Exception $e)
+       {
+         die($e->getMessage());
+         return(false);
+       }
+      }
   }
